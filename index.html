@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome Gretchen</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'IM Fell English SC', serif;
+      color: #fafafa;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+    .slide {
+      position: absolute;
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .slide.visible {
+      opacity: 1;
+    }
+    h1 {
+      z-index: 2;
+      font-size: 4em;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="slides">
+    <div class="slide visible" style="background-image: url('https://images.unsplash.com/photo-1527224259193-0d5abf000dc2?auto=format&fit=crop&w=1950&q=80');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509187360635-bd3b7b131226?auto=format&fit=crop&w=1950&q=80');"></div>
+    <div class="slide" style="background-image: url('https://pixabay.com/get/g70f4fc3b06badd71be61c75d1d81a988b6b9d2f87b5b47b8f2a3f0e0b780912bc5cebb3b5d8d5e779f20d3c5e620f469_1920.jpg');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1617127676519-0a8e70a47e1a?auto=format&fit=crop&w=1950&q=80');"></div>
+  </div>
+  <h1>Welcome Gretchen</h1>
+  <script>
+    let idx = 0;
+    const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+      slides[idx].classList.remove('visible');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('visible');
+    }, 5000);
+  </script>
+</body>
+</html>
